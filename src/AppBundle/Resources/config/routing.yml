@@ -1,0 +1,23 @@
+home:
+  path: /
+  defaults: { _controller: AppBundle:Default:index }
+
+book_list:
+  path: /books/list/{type}/{ket}/{page}
+  defaults:
+    page: 1
+    type: title
+    key: all
+    _controller: AppBundle:Book:list
+
+tags_add:
+  path: /books/addtag
+  defaults: {_controller: AppBundle:Book:tagsadd}
+  requirements:
+    _method: POST
+
+book_detail:
+  path: /book/{id}.html
+  defaults: {_controller: AppBundle:Book:detail}
+  requirements:
+    id: \d{5}
